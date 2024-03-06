@@ -14,18 +14,18 @@ private struct ContentView: View {
         @State private var text: String = ""
 
         var body: some View {
-                TextField("", text: $text)
-                        .autocorrectionDisabled(true)
+                TextField("Input", text: $text)
+                        .autocorrectionDisabled()
                         .textFieldStyle(.plain)
                         .font(.title3)
                         .padding()
-                        .background(VisualEffect())
+                        .background(VisualEffectView())
                         .cornerRadius(12)
                         .background(TransparentWindow())
         }
 }
 
-private struct VisualEffect: NSViewRepresentable {
+private struct VisualEffectView: NSViewRepresentable {
         func makeNSView(context: Self.Context) -> NSView {
                 let view = NSVisualEffectView()
                 view.material = .hudWindow
